@@ -4,7 +4,7 @@ public class MyWorld extends World {
     public int score;
     Label scoreLabel;
     public MyWorld() {
-        super(600, 400, 1);
+        super(600, 400, 1, false);//false= object not bounded to world
         //create elephant
         Elephant elephant = new Elephant();
         addObject(elephant, 300, 300);
@@ -29,12 +29,13 @@ public class MyWorld extends World {
         Label gameOverLabel = new Label("GAME OVER", 100);
         addObject(gameOverLabel, 300, 200);
     }
+    
     /**
      * Create new apple at random location at top of screen
      */
     public void createApple(){
         Apple apple = new Apple();
         int x = Greenfoot.getRandomNumber(600);
-        addObject(apple, x, 0);
+        addObject(apple, x, -20);
     }
 }
