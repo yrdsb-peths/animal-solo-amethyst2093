@@ -23,6 +23,13 @@ public class MyWorld extends World {
     }
     
     /**
+     * game over
+     */
+    public void gameOver(){
+        Label gameOverLabel = new Label("GAME OVER", 100);
+        addObject(gameOverLabel, 300, 200);
+    }
+    /**
      * Create new apple at random location at top of screen
      */
     public void createApple(){
