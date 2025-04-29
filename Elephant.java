@@ -32,6 +32,7 @@ public class Elephant extends Actor
             //get instance of world object is in
             MyWorld world = (MyWorld) getWorld(); 
             world.createApple();
+            world.increaseScore();
         }
     }
 }
