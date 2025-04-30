@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
+    SimpleTimer animationTimer = new SimpleTimer();
     GreenfootSound elephantSound = new GreenfootSound("elephant sound.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
@@ -26,6 +27,7 @@ public class Elephant extends Actor
             idleLeft[i].mirrorHorizontally();
             idleLeft[i].scale(120, 100);
         }
+        animationTimer.mark();
         setImage(idleRight[0]);
     }
     int imageIndex = 0;
@@ -33,6 +35,10 @@ public class Elephant extends Actor
      * animate elephant
      */
     public void animateElephant(){
+        if(animationTimer.millisElapsed() < 100){
+            return;
+        }
+        animationTimer.mark();
         if(facing.equals("right")){
             setImage(idleRight[imageIndex]);
             imageIndex = (imageIndex + 1) % idleRight.length;  
