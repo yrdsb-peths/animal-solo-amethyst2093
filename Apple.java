@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Apple extends Actor
 {
+    int speed = 1;
     public Apple(){
         GreenfootImage apple = new GreenfootImage("apple.png");
         apple.scale(50, 50);
@@ -20,7 +21,7 @@ public class Apple extends Actor
     public void act()
     {
         // apple fall
-        setLocation(getX(), getY() + 5);
+        setLocation(getX(), getY() + speed);
         
         //remove when touch bottom -- game over
         MyWorld world = (MyWorld) getWorld();
@@ -28,5 +29,8 @@ public class Apple extends Actor
             world.gameOver();
             world.removeObject(this);
         }
+    }
+    public void setSpeed(int spd){
+        speed = spd;
     }
 }
