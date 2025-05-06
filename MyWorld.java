@@ -1,11 +1,14 @@
 import greenfoot.*;
+import greenfoot.GreenfootSound;
 
 public class MyWorld extends World {
     public int score;
     Label scoreLabel;
-    int level = 1;
+    int level = 2;
+    GreenfootSound sonic = new GreenfootSound("sonicIdol.mp3");
     public MyWorld() {
         super(600, 400, 1, false);//false= object not bounded to world
+        sonic.play();
         //create elephant
         Elephant elephant = new Elephant();
         addObject(elephant, 300, 300);
@@ -21,10 +24,7 @@ public class MyWorld extends World {
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score);
-        
-        if(score % 5 == 0){
-            level++;
-        }
+        level++;
     }
     
     /**

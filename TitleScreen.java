@@ -39,5 +39,7 @@ public class TitleScreen extends World
         addObject(elephant,300,200);
         Label label = new Label("use \u2190 and \u2192 to move left and right", 20);
         addObject(label,300,300);
+        Label volume = new Label("VOLUME UP", 20);
+        addObject(volume,300,350);
     }
 }
