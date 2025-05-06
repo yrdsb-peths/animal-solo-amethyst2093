@@ -16,23 +16,34 @@ public class MyWorld extends World {
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
         createApple();
+        if(score == 10){
+            gameOver();
+        }
     }
     
     /**
-     * Increses score
+     * Increases score
      */
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score);
-        level++;
+        if(level < 7){
+            level++;
+        }
     }
     
     /**
      * game over
      */
     public void gameOver(){
-        Label gameOverLabel = new Label("GAME OVER", 100);
-        addObject(gameOverLabel, 300, 200);
+        sonic.stop();
+        if(score == 10){
+            Label win = new Label("YOU WIN!", 100);
+            addObject(win, 300, 200);
+        } else {
+            Label lose = new Label("TRY AGAIN!", 100);
+            addObject(lose, 300, 200);
+        }
     }
     
     /**
