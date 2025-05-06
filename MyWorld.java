@@ -16,9 +16,6 @@ public class MyWorld extends World {
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
         createApple();
-        if(score == 10){
-            gameOver();
-        }
     }
     
     /**
@@ -27,8 +24,11 @@ public class MyWorld extends World {
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score);
-        if(level < 7){
+        if(level < 5){
             level++;
+        }
+        if(score >= 10){
+            gameOver();
         }
     }
     
@@ -37,12 +37,17 @@ public class MyWorld extends World {
      */
     public void gameOver(){
         sonic.stop();
-        if(score == 10){
-            Label win = new Label("YOU WIN!", 100);
-            addObject(win, 300, 200);
+        if(score >= 10){
+            Label win = new Label("YOU WIN!", 90);
+            addObject(win, 300, 100);
+            if(score >= 20) {
+                removeObject(win);
+                Label stop = new Label("stop", 90);
+                addObject(stop, 300, 100);
+            }
         } else {
-            Label lose = new Label("TRY AGAIN!", 100);
-            addObject(lose, 300, 200);
+            Label lose = new Label("TRY AGAIN!", 90);
+            addObject(lose, 300, 100);
         }
     }
     
