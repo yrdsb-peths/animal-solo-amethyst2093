@@ -22,7 +22,7 @@ public class MyWorld extends World {
      * Increases score
      */
     public void increaseScore(){
-        score++;
+        score += 5;
         scoreLabel.setValue(score);
         if(level < 5){
             level++;
@@ -32,25 +32,24 @@ public class MyWorld extends World {
         }
     }
     
-    /**
-     * game over
-     */
-    public void gameOver(){
-        sonic.stop();
-        if(score >= 10){
-            Label win = new Label("YOU WIN!", 90);
-            addObject(win, 300, 100);
-            if(score >= 20) {
-                removeObject(win);
-                Label stop = new Label("stop", 90);
-                addObject(stop, 300, 100);
-            }
+        /**
+         * game over
+         */
+        public void gameOver(){
+            sonic.stop();
+            if(score >= 10){
+                Label win = new Label("YOU WIN!", 90);
+                addObject(win, 300, 100);
+                if(score >= 20) {
+                    Stop stop = new Stop();
+                    Greenfoot.setWorld(stop);
+                }
         } else {
-            Label lose = new Label("TRY AGAIN!", 90);
-            addObject(lose, 300, 100);
-        }
+                    Label lose = new Label("TRY AGAIN!", 90);
+                    addObject(lose, 300, 100);
+                }
     }
-    
+        
     /**
      * Create new apple at random location at top of screen
      */
