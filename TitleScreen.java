@@ -41,5 +41,7 @@ public class TitleScreen extends World
         addObject(label,300,300);
         Label volume = new Label("VOLUME UP", 20);
         addObject(volume,300,350);
+        Label heh = new Label("(not too up tho)", 20);
+        addObject(heh,300,375);
     }
 }
