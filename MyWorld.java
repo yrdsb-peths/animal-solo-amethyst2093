@@ -8,6 +8,7 @@ public class MyWorld extends World {
     GreenfootSound sonic = new GreenfootSound("sonicIdol.mp3");
     public MyWorld() {
         super(600, 400, 1, false);//false= object not bounded to world
+        setBackground("background.jpeg");
         sonic.play();
         //create elephant
         Elephant elephant = new Elephant();
