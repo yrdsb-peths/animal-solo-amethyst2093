@@ -21,5 +21,7 @@ public class Stop extends World
         addObject(stop, 300, 150);
         Label help = new Label("get some help", 90);
         addObject(help, 300, 250);
+        GreenfootSound rick = new GreenfootSound("rick.mp3");
+        rick.playLoop();
     }
 }
